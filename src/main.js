@@ -40,6 +40,7 @@ form.addEventListener('submit', event => {
       form.reset();
     })
     .catch(error => {
+      hideLoader();
       console.error(error);
     });
 });
