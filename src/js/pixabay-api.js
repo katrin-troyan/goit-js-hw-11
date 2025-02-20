@@ -16,5 +16,10 @@ export const fetchImages = query =>
     })
     .then(response => response.data.hits)
     .catch(error => {
+      iziToast.error({
+        message:
+          'An error occurred while fetching images. Please try again later.',
+        position: 'topRight',
+      });
       console.error(error);
     });

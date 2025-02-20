@@ -20,6 +20,14 @@ form.addEventListener('submit', event => {
 
   const query = input.value.trim();
 
+  if (!query) {
+    iziToast.warning({
+      message: 'Please enter a valid search query!',
+      position: 'topRight',
+    });
+    return;
+  }
+
   cleanGallery();
   showLoader();
 
@@ -41,6 +49,11 @@ form.addEventListener('submit', event => {
     })
     .catch(error => {
       hideLoader();
+      iziToast.error({
+        message:
+          'An error occurred while fetching images. Please try again later.',
+        position: 'topRight',
+      });
       console.error(error);
     });
 });
